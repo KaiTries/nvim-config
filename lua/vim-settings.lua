@@ -1,6 +1,8 @@
 local opt = vim.opt
 local g = vim.g
 
+opt.cmdheight = 2
+
 g.mapleader = " "
 g.background = "light"
 
