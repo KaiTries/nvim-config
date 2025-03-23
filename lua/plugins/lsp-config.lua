@@ -27,6 +27,10 @@ return {
       })
       lspconfig.ccls.setup({
         capabilities = capabilities,
+        cmd = {
+          "ccls",
+          "--offset-encoding=utf-16",
+           },
       })
       lspconfig.pyright.setup({
         capabilities = capabilities,
