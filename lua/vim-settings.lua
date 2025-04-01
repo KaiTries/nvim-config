@@ -42,5 +42,8 @@ opt.title = true
 
 opt.autochdir = true
 
+opt.splitright = true
+opt.splitbelow = true
+
 -- keymap for neo-tree plugin
 vim.keymap.set("n", "<leader>e", ":Neotree focus reveal left toggle\n")
