@@ -17,8 +17,6 @@ return {
 			dap.listeners.before.event_exited.dapui_config = function()
 				dapui.close()
 			end
-			vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>")
-			vim.keymap.set("n", "<leader>dr", "<cmd> DapContinue <CR>")
 		end,
 	},
 	{

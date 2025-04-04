@@ -22,9 +22,9 @@ return {
 		dependencies = { "saghen/blink.cmp" },
 		config = function()
 			local lspconfig = require("lspconfig")
-      local original_capabilities = vim.lsp.protocol.make_client_capabilities()
+			local original_capabilities = vim.lsp.protocol.make_client_capabilities()
 			local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
-    
+
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
@@ -40,7 +40,7 @@ return {
 			})
 			lspconfig.eslint.setup({
 				flags = { debounce_text_changes = 500 },
-				on_attach = function(client, bufnr)
+				on_attach = function(client, _)
 					client.server_capabilities.document_formatting = true
 					if client.server_capabilities.document_formatting then
 						local au_lsp = vim.api.nvim_create_augroup("eslint_lsp", { clear = true })
@@ -55,10 +55,6 @@ return {
 				end,
 			})
 			vim.diagnostic.config({ virtual_lines = { current_line = true } })
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 		end,
 	},
 }
