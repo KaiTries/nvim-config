@@ -6,6 +6,9 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", { desc = "use vim keys to navigate
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { desc = "turn search highlights off" })
 
+-- Keymap terminal specific
+vim.keymap.set("t", "<ESC>", [[<C-\><C-n>]])
+
 -- keymap for neo-tree plugin
 vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", { desc = "Open parent directory in Oil float window" })
 
