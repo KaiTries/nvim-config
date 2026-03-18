@@ -15,10 +15,9 @@ vim.keymap.set("n", "<leader>dl", function() require("dap").run_last() end, { de
 vim.keymap.set("n", "<leader>dp", function() require("dap").pause() end, { desc = "Pause" })
 vim.keymap.set("n", "<leader>dR", function() require("dap").repl.toggle() end, { desc = "Toggle REPL" })
 
--- DAP UI
-vim.keymap.set("n", "<leader>du", function() require("dapui").toggle() end, { desc = "Toggle DAP UI" })
-vim.keymap.set("n", "<leader>de", function() require("dapui").eval() end, { desc = "Eval expression" })
-vim.keymap.set("v", "<leader>de", function() require("dapui").eval() end, { desc = "Eval selection" })
+-- DAP View
+vim.keymap.set("n", "<leader>du", function() require("dap-view").toggle() end, { desc = "Toggle DAP view" })
+vim.keymap.set({ "n", "v" }, "<leader>de", function() require("dap-view").add_expr() end, { desc = "Add watch expression" })
 
 -- easy-dotnet debug
 vim.keymap.set("n", "<leader>dd", function() require("easy-dotnet").debug_project() end, { desc = "Debug .NET project" })
