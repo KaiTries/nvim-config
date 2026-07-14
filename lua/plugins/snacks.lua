@@ -39,6 +39,9 @@ return {
       { "gr", function() Snacks.picker.lsp_references() end, desc = "References", nowait = true },
       { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto implementation" },
       { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto type definition" },
+      -- Terminal
+      { "<c-/>", function() Snacks.terminal() end, desc = "Toggle terminal", mode = { "n", "t" } },
+      { "<c-_>", function() Snacks.terminal() end, desc = "which_key_ignore", mode = { "n", "t" } },
       -- Git / misc
       { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
       { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification history" },
