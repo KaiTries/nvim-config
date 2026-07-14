@@ -36,9 +36,9 @@ return {
       -- LSP navigation
       { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto definition" },
       { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto declaration" },
-      { "gr", function() Snacks.picker.lsp_references() end, desc = "References", nowait = true },
-      { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto implementation" },
-      { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto type definition" },
+      { "grr", function() Snacks.picker.lsp_references() end, desc = "References" },
+      { "gri", function() Snacks.picker.lsp_implementations() end, desc = "Goto implementation" },
+      { "grt", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto type definition" },
       -- Terminal
       { "<c-/>", function() Snacks.terminal() end, desc = "Toggle terminal", mode = { "n", "t" } },
       { "<c-_>", function() Snacks.terminal() end, desc = "which_key_ignore", mode = { "n", "t" } },

@@ -34,8 +34,6 @@ map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 -- Clear search highlight
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
--- Diagnostics
-map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line diagnostics" })
 
 -- Toggle format-on-save
 map("n", "<leader>uf", function()
@@ -50,7 +48,7 @@ map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitsigns-blame",
   callback = function()
-    vim.api.nvim_win_set_width(0, 40)
+    vim.api.nvim_win_resize(0, 40, nil, {})
   end,
 })
 map("n", "<leader>gB", function()
