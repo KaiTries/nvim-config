@@ -64,6 +64,7 @@ return {
         { "<leader>gh", group = "hunks" },
         { "<leader>q", group = "quit" },
         { "<leader>s", group = "search" },
+        { "<leader>t", group = "test" },
         { "<leader>u", group = "ui" },
       },
     },
