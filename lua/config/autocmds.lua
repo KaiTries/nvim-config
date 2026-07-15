@@ -37,6 +37,23 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Show LSP progress ($/progress, e.g. roslyn project initialization) as
+-- a snacks notification in the bottom right
+vim.api.nvim_create_autocmd("LspProgress", {
+  group = augroup("lsp_progress"),
+  callback = function(ev)
+    local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+    vim.notify(vim.lsp.status(), vim.log.levels.INFO, {
+      id = "lsp_progress",
+      title = "LSP Progress",
+      opts = function(notif)
+        notif.icon = ev.data.params.value.kind == "end" and " "
+          or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+      end,
+    })
+  end,
+})
+
 -- Create missing parent directories on save
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = augroup("auto_create_dir"),
