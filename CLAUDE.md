@@ -23,6 +23,8 @@ Key plugins:
 - `nvim-treesitter` — **main branch** (new API): parsers installed via `require("nvim-treesitter").install()`, highlighting started by a `FileType` autocmd calling `vim.treesitter.start()`. Requires the `tree-sitter` CLI (installed via mason).
 - `conform.nvim` — formatting; format-on-save respects `vim.g.autoformat` / `vim.b.autoformat` (toggle with `<leader>uf`). Razor buffers set `vim.b.autoformat = false` in options.lua.
 - `nvim-lspconfig` + `mason-lspconfig` — installs and enables `lua_ls` and `jsonls` via `vim.lsp.config`/`vim.lsp.enable` (Neovim 0.11+ pattern).
+- `neotest` + `neotest-vstest` — test running (`<leader>t` prefix, spec in `lua/plugins/test.lua`).
+- `bufferline.nvim` — buffer tabs; `lualine` shows attached LSP clients.
 
 The Mason registry includes `github:Crashdummyy/mason-registry` (required for Roslyn).
 
@@ -32,3 +34,8 @@ The Mason registry includes `github:Crashdummyy/mason-registry` (required for Ro
 - `~/.dotnet/tools` is injected into PATH in options.lua.
 - C# formatting uses csharpier (mason-installed) via conform.nvim.
 - Open Neovim from the directory containing the `.sln` file for full cross-project Roslyn navigation.
+
+## Testing (C#)
+
+- Tests use **xUnit v3** (Microsoft.Testing.Platform). The neotest adapter must be MTP-aware: `Nsidorenco/neotest-vstest`. Do NOT switch back to `Issafalcon/neotest-dotnet` — it predates xunit v3 and crashes on file-level runs (`attempt to index field 'context'`).
+- Test failure messages (Expected vs Actual) surface as neotest **diagnostics** on the failing test line (`<leader>cd`), not in the neotest output window — MTP only writes a session log there.
