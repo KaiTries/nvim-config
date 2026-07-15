@@ -30,6 +30,25 @@ return {
         theme = "auto",
         globalstatus = true,
       },
+      sections = {
+        lualine_x = {
+          -- Attached LSP clients for the current buffer
+          function()
+            local clients = vim.lsp.get_clients({ bufnr = 0 })
+            if #clients == 0 then
+              return ""
+            end
+            local names = {}
+            for _, client in ipairs(clients) do
+              names[#names + 1] = client.name
+            end
+            return "󰒋 " .. table.concat(names, " ")
+          end,
+          "encoding",
+          "fileformat",
+          "filetype",
+        },
+      },
     },
   },
   {
