@@ -41,6 +41,10 @@ opt.wildmode = "longest:full,full"
 opt.winminwidth = 5
 opt.wrap = false
 
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevelstart = 99 -- start unfolded
+
 -- .NET: Roslyn LSP ships in the EasyDotnet dotnet global tool
 vim.env.PATH = vim.env.PATH .. ":" .. vim.env.HOME .. "/.dotnet/tools"
 
